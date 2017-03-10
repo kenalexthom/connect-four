@@ -14,18 +14,43 @@
  * limitations under the License.
  */
 
-.c4-header .mdl-layout__header-row {
-    padding-left: 28px;
+h1{
+    font-size: x-large;
+}
+h2 {
+    font-size: medium;
+    line-height: 14px;
+    margin: 7px 0;
 }
 
-.c4-board, .c4-controls {
-    width: 476px;
+.c4-main {
+    display: table;
+    margin: 56px auto;
+}
+
+.c4-title, .c4-color, .c4-player, .c4-board {
+    display: inline-block;
     border-radius: 2px;
-    margin: 14px auto;
-    padding: 14px;
+    margin: 14px;
+    padding: 7px 14px;
 }
 
-.c4-space, .c4-coin {
+.c4-side-bar {
+    float: left;
+    width: 224px;
+    padding: 0 14px;
+}
+
+.c4-title, .c4-color, .c4-player {
+    width: 182px;
+}
+
+.c4-board {
+    float: right;
+    width: 476px;
+}
+
+.c4-space, .c4-coin{
     display: inline-block;
     width: 50px;
     height: 50px;
@@ -33,18 +58,48 @@
     margin: 7px;
 }
 
-.c4-space {
+.c4-board .c4-space {
     box-shadow:
         inset 0 4px 5px 0 rgba(0,0,0,.14),
         inset 0 1px 10px 0 rgba(0,0,0,.12),
         inset 0 2px 4px -1px rgba(0,0,0,.2);
 }
 
-.c4-coin {
+.c4-board .c4-space.active:hover, .c4-board .c4-space.active:active {
+    cursor: pointer;
+}
+
+.c4-board .c4-coin {
     box-shadow:
         inset 0 2px 2px 0 rgba(0,0,0,.14),
         inset 0 3px 1px -2px rgba(0,0,0,.2),
         inset 0 1px 5px 0 rgba(0,0,0,.12);
+}
+
+.c4-color .c4-coin {
+    box-shadow:
+        0 2px 2px 0 rgba(0,0,0,.14),
+        0 3px 1px -2px rgba(0,0,0,.2),
+        0 1px 5px 0 rgba(0,0,0,.12);
+}
+
+.c4-color .c4-coin.active:hover, .c4-color .c4-coin.active:active {
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+    box-shadow:
+        inset 0 4px 5px 0 rgba(0,0,0,.14),
+        inset 0 1px 10px 0 rgba(0,0,0,.12),
+        inset 0 2px 4px -1px rgba(0,0,0,.2);
+    cursor: pointer;
+}
+
+.c4-color .c4-coin.selected {
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+    box-shadow:
+        inset 0 4px 5px 0 rgba(0,0,0,.14),
+        inset 0 1px 10px 0 rgba(0,0,0,.12),
+        inset 0 2px 4px -1px rgba(0,0,0,.2);
 }
 
 #view-source {

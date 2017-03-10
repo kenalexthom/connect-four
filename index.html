@@ -29,69 +29,90 @@
    <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
-<div class="c4-layout mdl-layout mdl-layout--fixed-header mdl-js-layout mdl-color--grey-100">
-   <header class="c4-header mdl-layout__header mdl-layout__header--scroll mdl-color--grey-100 mdl-color-text--grey-800">
-      <div class="mdl-layout__header-row">
-         <span class="mdl-layout-title">Connect Four</span>
+<body class="mdl-color--grey-100">
+   <main class="c4-main">
+      <div class="c4-side-bar">
+         <div class="c4-title mdl-color--white mdl-color-text--grey-800 mdl-shadow--4dp">
+            <h1>Connect Four</h1>
+         </div>
+         <div class="c4-color mdl-color--white mdl-color-text--grey-800 mdl-shadow--4dp">
+            <h2>Choose a color to begin:</h2>
+            <div class="c4-coin mdl-color--red"></div>
+            <div class="c4-coin mdl-color--yellow"></div>
+         </div>
+         <div class="c4-player mdl-color--white mdl-color-text--grey-800 mdl-shadow--4dp">
+            <h2>Current player:</h2>
+            <div class="c4-current-player"></div>
+         </div>
       </div>
-   </header>
 
-   <main class="mdl-layout__content">
       <div class="c4-board mdl-color--light-blue-800 mdl-shadow--2dp">
-         <div class="c4-space mdl-color--grey-100"></div>
-         <div class="c4-coin mdl-color--red"></div>
-         <div class="c4-coin mdl-color--yellow"></div>
-         <div class="c4-space mdl-color--grey-100"></div>
-         <div class="c4-space mdl-color--grey-100"></div>
-         <div class="c4-coin mdl-color--red"></div>
-         <div class="c4-coin mdl-color--yellow"></div>
-         <div class="c4-space mdl-color--grey-100"></div>
-         <div class="c4-coin mdl-color--red"></div>
-         <div class="c4-coin mdl-color--yellow"></div>
-         <div class="c4-space mdl-color--grey-100"></div>
-         <div class="c4-space mdl-color--grey-100"></div>
-         <div class="c4-coin mdl-color--red"></div>
-         <div class="c4-coin mdl-color--yellow"></div>
-         <div class="c4-space mdl-color--grey-100"></div>
-         <div class="c4-coin mdl-color--red"></div>
-         <div class="c4-coin mdl-color--yellow"></div>
-         <div class="c4-space mdl-color--grey-100"></div>
-         <div class="c4-space mdl-color--grey-100"></div>
-         <div class="c4-coin mdl-color--red"></div>
-         <div class="c4-coin mdl-color--yellow"></div>
-         <div class="c4-space mdl-color--grey-100"></div>
-         <div class="c4-coin mdl-color--red"></div>
-         <div class="c4-coin mdl-color--yellow"></div>
-         <div class="c4-space mdl-color--grey-100"></div>
-         <div class="c4-space mdl-color--grey-100"></div>
-         <div class="c4-coin mdl-color--red"></div>
-         <div class="c4-coin mdl-color--yellow"></div>
-         <div class="c4-space mdl-color--grey-100"></div>
-         <div class="c4-coin mdl-color--red"></div>
-         <div class="c4-coin mdl-color--yellow"></div>
-         <div class="c4-space mdl-color--grey-100"></div>
-         <div class="c4-space mdl-color--grey-100"></div>
-         <div class="c4-coin mdl-color--red"></div>
-         <div class="c4-coin mdl-color--yellow"></div>
-         <div class="c4-space mdl-color--grey-100"></div>
-         <div class="c4-coin mdl-color--red"></div>
-         <div class="c4-coin mdl-color--yellow"></div>
-         <div class="c4-space mdl-color--grey-100"></div>
-         <div class="c4-space mdl-color--grey-100"></div>
-         <div class="c4-coin mdl-color--red"></div>
-         <div class="c4-coin mdl-color--yellow"></div>
-      </div>
+         <div class="c4-row">
+            <div class="c4-space mdl-color--grey-100"></div>
+            <div class="c4-space mdl-color--grey-100"></div>
+            <div class="c4-space mdl-color--grey-100"></div>
+            <div class="c4-space mdl-color--grey-100"></div>
+            <div class="c4-space mdl-color--grey-100"></div>
+            <div class="c4-space mdl-color--grey-100"></div>
+            <div class="c4-space mdl-color--grey-100"></div>
+         </div>
 
-      <div class="c4-controls mdl-color--white mdl-color-text--grey-800 mdl-shadow--4dp">
-         <p>status and buttons?</p>
+         <div class="c4-row">
+            <div class="c4-space mdl-color--grey-100"></div>
+            <div class="c4-space mdl-color--grey-100"></div>
+            <div class="c4-space mdl-color--grey-100"></div>
+            <div class="c4-space mdl-color--grey-100"></div>
+            <div class="c4-space mdl-color--grey-100"></div>
+            <div class="c4-space mdl-color--grey-100"></div>
+            <div class="c4-space mdl-color--grey-100"></div>
+         </div>
+
+         <div class="c4-row">
+            <div class="c4-space mdl-color--grey-100"></div>
+            <div class="c4-space mdl-color--grey-100"></div>
+            <div class="c4-space mdl-color--grey-100"></div>
+            <div class="c4-space mdl-color--grey-100"></div>
+            <div class="c4-space mdl-color--grey-100"></div>
+            <div class="c4-space mdl-color--grey-100"></div>
+            <div class="c4-space mdl-color--grey-100"></div>
+         </div>
+
+         <div class="c4-row">
+            <div class="c4-space mdl-color--grey-100"></div>
+            <div class="c4-space mdl-color--grey-100"></div>
+            <div class="c4-space mdl-color--grey-100"></div>
+            <div class="c4-space mdl-color--grey-100"></div>
+            <div class="c4-space mdl-color--grey-100"></div>
+            <div class="c4-space mdl-color--grey-100"></div>
+            <div class="c4-space mdl-color--grey-100"></div>
+         </div>
+
+         <div class="c4-row">
+            <div class="c4-space mdl-color--grey-100"></div>
+            <div class="c4-space mdl-color--grey-100"></div>
+            <div class="c4-space mdl-color--grey-100"></div>
+            <div class="c4-space mdl-color--grey-100"></div>
+            <div class="c4-space mdl-color--grey-100"></div>
+            <div class="c4-space mdl-color--grey-100"></div>
+            <div class="c4-space mdl-color--grey-100"></div>
+         </div>
+
+         <div class="c4-row">
+            <div class="c4-space mdl-color--grey-100"></div>
+            <div class="c4-space mdl-color--grey-100"></div>
+            <div class="c4-space mdl-color--grey-100"></div>
+            <div class="c4-space mdl-color--grey-100"></div>
+            <div class="c4-space mdl-color--grey-100"></div>
+            <div class="c4-space mdl-color--grey-100"></div>
+            <div class="c4-space mdl-color--grey-100"></div>
+         </div>
       </div>
    </main>
-</div>
 
 <a href="https://github.com/kenalexthom/connect-four" target="_blank" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">View Source</a>
 
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

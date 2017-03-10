@@ -1,53 +1,27 @@
 
-var connectFourApp = function(state, action) {
+function connectFourApp(state, action) {
     if (typeof state === "undefined") {
-        state = {board: zeroesArray(7,6)};
+        state = getInitialState();
     }
     switch(action.type) {
         case "CHOOSE_COLOR":
-            return {
-                board: state.board,
-                color: "red"
-            };
+            return chooseColor(state, action.color);
         case "INSERT_COIN":
+            return insertCoin(state, action.column);
         case "RESTART_GAME":
+            return getInitialState();
         case "SAVE_GAME":
+            return saveGame(state);
         default:
             return state;
     }
-};
+}
 
-function createStore(reducer) {
-    var state;
-    var listeners = [];
-
-    var getState = function() {
-        return state;
-    };
-
-    var dispatch = function(action) {
-        state = reducer(state, action);
-        listeners.forEach(function(listener) {
-            console.log(listener);
-            return listener;
-        })
-    };
-
-    var subscribe = function(listener) {
-        listeners.push(listener);
-        return function () {
-            listeners = listeners.filter(function(l) {
-                return l !== listener;
-            })
-        }
-    };
-
-    dispatch({});
-
+function getInitialState() {
     return {
-        getState: getState,
-        dispatch: dispatch,
-        subscribe: subscribe
+        board: zeroesArray(7,6),
+        current_player: Math.floor(Math.random() * 2) + 1,
+        color: ""
     }
 }
 
@@ -58,12 +32,47 @@ function zeroesArray(columns, rows) {
     return array;
 }
 
-function render() {
+function chooseColor(state, color) {
+    return {
+        board: state.board,
+        current_player: state.current_player,
+        color: color
+    };
+}
+
+function insertCoin(state, column) {
 
 }
 
-var store = createStore(connectFourApp);
+function saveGame(state) {
 
-store.subscribe(render());
+}
+
+function render() {
+    var state = store.getState();
+
+    if(state.color) {
+        $(".c4-board .c4-space").addClass("active");
+        $(".c4-color .c4-coin").removeClass("active");
+        $(".c4-color .mdl-color--" + state.color + ":not('selected')").addClass("selected");
+    } else {
+        $(".c4-color .c4-coin").addClass("active");
+    }
+
+    if(state.current_player === 1) {
+        $('.c4-player .c4-current-player').text("Human")
+    } else {
+        $('.c4-player .c4-current-player').text("Computer")
+    }
+
+}
+
+var store = Redux.createStore(connectFourApp);
+
+store.subscribe(render);
 render();
-console.log(store.dispatch({type: "CHOOSE_COLOR"}));
+
+$(".c4-color .c4-coin.active").click(function() {
+    var color = $(this).hasClass("mdl-color--red") ? "red" : "yellow";
+    store.dispatch({type: "CHOOSE_COLOR", color: color});
+});
