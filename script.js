@@ -1,3 +1,6 @@
+var store = Redux.createStore(connectFourApp);
+store.subscribe(render);
+render();
 
 function connectFourApp(state, action) {
     if (typeof state === "undefined") {
@@ -17,37 +20,8 @@ function connectFourApp(state, action) {
     }
 }
 
-function getInitialState() {
-    return {
-        board: {
-            spaces: zeroesArray(7,6),
-            available_columns: [0, 1, 2, 3, 4, 5, 6]
-        },
-        current_player: Math.floor(Math.random() * 2) + 1,
-        color: {
-            player: "",
-            computer: ""
-        }
-    }
-}
 
-function zeroesArray(columns, rows) {
-    var array = [], row = [];
-    for (var x = 0; x < columns; x++) row.push(0);
-    for (var y = 0; y < rows; y++) array.push(row.slice());
-    return array;
-}
-
-function cloneObject(obj) {
-    var newObj = {};
-
-    for (var key in obj) {
-        newObj[key] = obj[key];
-    }
-
-    return newObj;
-}
-
+// Reducer functions
 function chooseColor(state, color) {
     var next_state = cloneObject(state);
     
@@ -81,6 +55,40 @@ function saveGame(state) {
 
 }
 
+// Helper functions
+function getInitialState() {
+    return {
+        board: {
+            spaces: zeroesArray(7,6),
+            available_columns: [0, 1, 2, 3, 4, 5, 6]
+        },
+        current_player: Math.floor(Math.random() * 2) + 1,
+        color: {
+            player: "",
+            computer: ""
+        }
+    }
+}
+
+function zeroesArray(columns, rows) {
+    var array = [], row = [];
+    for (var x = 0; x < columns; x++) row.push(0);
+    for (var y = 0; y < rows; y++) array.push(row.slice());
+    return array;
+}
+
+function cloneObject(obj) {
+    var newObj = {};
+
+    for (var key in obj) {
+        newObj[key] = obj[key];
+    }
+
+    return newObj;
+}
+
+
+// UI functions
 function render() {
     var state = store.getState();
     var color, cell;
@@ -118,11 +126,6 @@ function render() {
         }, 500);
     }
 }
-
-var store = Redux.createStore(connectFourApp);
-
-store.subscribe(render);
-render();
 
 $(".c4-color .c4-coin.active").click(function() {
     var player = $(this).hasClass("mdl-color--red") ? "red" : "yellow";
